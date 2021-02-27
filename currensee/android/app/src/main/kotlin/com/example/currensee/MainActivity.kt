@@ -1,4 +1,4 @@
-package com.example.noNameApp
+package com.example.currensee
 
 import io.flutter.embedding.android.FlutterActivity
 
