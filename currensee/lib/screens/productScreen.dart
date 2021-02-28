@@ -16,7 +16,7 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //var aWL = Provider.of<WatchDict>(context, listen: false);
-    final List<Listing> data = [
+    final List<Listing> _data = [
       Listing(
           name: 'Listing1',
           title: 'yeeting my gpu',
