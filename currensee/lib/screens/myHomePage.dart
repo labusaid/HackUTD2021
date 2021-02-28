@@ -8,29 +8,9 @@ import 'package:currensee/widgets/searchBox.dart';
 
 class MyHomePage extends StatelessWidget {
   static const title = 'CurrenSee';
-  final List<Listing> data = [
-    Listing(
-        name: 'listing1',
-        title: 'yeeting my gpu',
-        price: 500,
-        url: Uri.parse('lereddit.com'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-24')),
-    Listing(
-        name: 'listing2',
-        title: 'yeeting my gpu again',
-        price: 400,
-        url: Uri.parse('lereddit.com'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-25')),
-    Listing(
-        name: 'listing3',
-        title: 'skeeting my gpu',
-        price: 450,
-        url: Uri.parse('lereddit.com'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-26'))
-  ];
+  final List<Listing> data;
+
+  MyHomePage(this.data);
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +39,10 @@ class MyHomePage extends StatelessWidget {
             Container(
               height: 380,
               child: Consumer<WatchDict>(
-                builder: (context, aWL, child) => Watchlist(aWL.dict),
+                builder: (context, aWL, child) => Watchlist(aWL.dict, data),
               ),
             ),
-            SearchBox()
+            SearchBox(data)
           ],
         ),
       ),

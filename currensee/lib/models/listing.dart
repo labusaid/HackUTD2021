@@ -1,4 +1,3 @@
-import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
 
 class Listing {

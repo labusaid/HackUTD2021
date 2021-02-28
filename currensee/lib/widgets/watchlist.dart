@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './priceWatch.dart';
 import 'dart:math';
+import 'package:currensee/models/listing.dart';
 
 class WatchDict extends ChangeNotifier {
   final Map<String, double> _watched = {'Product1': 100};
@@ -30,14 +31,15 @@ class WatchDict extends ChangeNotifier {
 class Watchlist extends StatelessWidget {
 
    final Map<String, double> watched;
+   final List<Listing> data;
 
-   Watchlist(this.watched);
+   Watchlist(this.watched, this.data);
 
   @override
   Widget build(BuildContext context) {
     List<Widget> chList = [];
     print(  watched);
-    watched.forEach((key, value) => chList.add(PriceWatch(key, value)));
+    watched.forEach((key, value) => chList.add(PriceWatch(key, value, data)));
     print(chList);
     return ListView(
       children: chList,

@@ -1,20 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:currensee/screens/productScreen.dart';
+import 'package:currensee/models/listing.dart';
 
 class SearchBox extends StatefulWidget {
-  final List<String> list = List.generate(10, (index) => "Text $index");
+  final List<Listing> data;
+  SearchBox(this.data);
   @override
-  _SearchBoxState createState() => _SearchBoxState();
+  _SearchBoxState createState() => _SearchBoxState(data);
 }
 
 class _SearchBoxState extends State<SearchBox> {
+  List<Listing> data;
+
+  _SearchBoxState(this.data);
+
+
   @override
   Widget build(BuildContext context) {
+    List<String> list = [];
+    data.forEach((element) {
+      list.add(element.name);
+    });
+
     return Container(
         child: IconButton(
       onPressed: () =>
-          {showSearch(context: context, delegate: Search(widget.list))},
-      tooltip: 'Navigate to Generic Product Page',
+          {showSearch(context: context, delegate: Search(list, data))},
+      tooltip: 'Navigate to Product Catalog',
       icon: Icon(Icons.search),
     ));
   }
@@ -78,9 +90,10 @@ class Search extends SearchDelegate {
   }
 
   final List<String> listExample;
-  Search(this.listExample);
+  final List<Listing> data;
+  Search(this.listExample, this.data);
 
-  List<String> recentList = ["Text 4", "Text 3"];
+  List<String> recentList = ["Listing 1", "Listing 2"];
 
   @override
   Widget buildSuggestions(BuildContext context) {
@@ -105,7 +118,7 @@ class Search extends SearchDelegate {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        ProductScreen(suggestionList[index])));
+                        ProductScreen(suggestionList[index], data)));
           },
         );
       },

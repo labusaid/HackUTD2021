@@ -23,7 +23,7 @@ class PriceListing extends StatelessWidget {
     return Card(
         child: ListTile(
       leading: FlutterLogo(),
-      title: Text(aListing.name),
+      title: Text(aListing.title),
       subtitle: Text(string),
       trailing: Text('\$' + aListing.price.toString()),
       onTap: () {

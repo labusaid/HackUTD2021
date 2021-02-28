@@ -4,10 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'dart:math';
 import 'package:currensee/screens/productScreen.dart';
+import 'package:currensee/models/listing.dart';
 
 class PriceWatch extends StatelessWidget {
   final String productName;
   final double price;
+  final List<Listing> data;
+
   String get priceString {
     return "\$" + price.toString();
   }
@@ -16,7 +19,7 @@ class PriceWatch extends StatelessWidget {
     return x.nextBool();
   }
 
-  PriceWatch(this.productName, this.price);
+  PriceWatch(this.productName, this.price, this.data);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class PriceWatch extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        ProductScreen(productName)))
+                        ProductScreen(productName, data)))
       },
       onLongPress: () {
         showAlertDialog(context, productName);
