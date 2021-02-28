@@ -21,7 +21,9 @@ class _SearchBoxState extends State<SearchBox> {
     data.forEach((element) {
       list.add(element.name);
     });
-
+    Set<String> nameSet = list.toSet();
+    list = nameSet.toList();
+    print(list);
     return Container(
         child: IconButton(
       onPressed: () =>

@@ -8,12 +8,18 @@ import 'package:currensee/widgets/watchlist.dart';
 
 class ProductScreen extends StatelessWidget {
   final String productName;
-  final List<Listing> _data;
+  final List<Listing> data;
 
-  ProductScreen(this.productName, this._data);
+  ProductScreen(this.productName, this.data);
 
   @override
   Widget build(BuildContext context) {
+    List<Listing> _data = [];
+    data.forEach((element) {
+      if(element.name == productName){
+        _data.add(element);
+      }
+    });
     var aWL = Provider.of<WatchDict>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
