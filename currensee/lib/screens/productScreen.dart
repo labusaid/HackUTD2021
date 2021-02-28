@@ -1,3 +1,4 @@
+import 'package:currensee/widgets/listing_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:currensee/widgets/prNameHeader.dart';
 import 'package:currensee/widgets/graph.dart';
@@ -15,7 +16,7 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //var aWL = Provider.of<WatchDict>(context, listen: false);
-    final List<Listing> data = [
+    final List<Listing> _data = [
     Listing(
         name: 'Listing1',
         title: 'yeeting my gpu',
@@ -52,9 +53,9 @@ class ProductScreen extends StatelessWidget {
       body: ListView(
         children: [
           PrNameHeader('$productName', 28),
-          Graph(200),
+          ListingChart(data: _data),
           GraphFilter(),
-          PriceList(data),
+          PriceList(_data),
         ],
       ),
     );

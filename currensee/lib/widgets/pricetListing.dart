@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:currensee/models/listing.dart';
+import 'package:intl/intl.dart';
 
 class PriceListing extends StatelessWidget {
   final Listing aListing;
@@ -8,11 +9,13 @@ class PriceListing extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateFormat dateFormat = DateFormat("MM-dd-yyyy HH:mm");
+    String string = dateFormat.format(aListing.postDate);
     return Card(
       child: ListTile(
         leading: FlutterLogo(),
         title: Text(aListing.name),
-        subtitle: Text(aListing.postDate.toString()),
+        subtitle: Text(string),
         trailing: Text('\$' + aListing.price.toString()),
         onTap: () => {},
       )

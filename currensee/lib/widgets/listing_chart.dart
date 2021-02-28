@@ -18,6 +18,6 @@ class ListingChart extends StatelessWidget {
       )
     ];
 
-    return charts.TimeSeriesChart(series, animate: true);
+    return Container(child: charts.TimeSeriesChart(series, animate: true), height: 100, width: 100,);
   }
 }
