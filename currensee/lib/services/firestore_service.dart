@@ -12,23 +12,25 @@ class FirestoreService {
   }
 
   Future<List<Listing>> getListings() async {
-    firestore.collection('reddit').doc('Selling').get().then(
+    await firestore.collection('reddit').doc('Selling').get().then(
         (DocumentSnapshot documentSnapshot) =>
-            {_listings.add(docToListing(documentSnapshot))});
+            {_listings = docToListings(documentSnapshot)});
 
-    print(_listings);
     return _listings;
   }
 
-  Listing docToListing(DocumentSnapshot snapshot) {
-    final post = snapshot['posts'][0];
-    return new Listing(
-        name: snapshot['name'],
-        title: post['title'],
-        price: post['price'].toDouble(),
-        url: Uri.parse(post['url']),
-        isComplete: post['isComplete'],
-        postDate: DateTime.fromMicrosecondsSinceEpoch(
-            post['postDate'].microsecondsSinceEpoch));
+  List<Listing> docToListings(DocumentSnapshot snapshot) {
+    snapshot['posts'].forEach((post) => {
+          _listings.add(new Listing(
+              name: snapshot['name'],
+              title: post['title'],
+              price: post['price'].toDouble(),
+              url: Uri.parse(post['url']),
+              isComplete: post['isComplete'],
+              postDate: DateTime.fromMicrosecondsSinceEpoch(
+                  post['postDate'].microsecondsSinceEpoch)))
+        });
+
+    return _listings;
   }
 }

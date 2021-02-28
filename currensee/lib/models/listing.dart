@@ -1,3 +1,4 @@
+import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
 
 class Listing {
@@ -19,6 +20,11 @@ class Listing {
 
   @override
   String toString() {
-    return (this.name + 'listing');
+    return (this.name +
+        this.title +
+        this.price.toString() +
+        this.url.toString() +
+        this.isComplete.toString() +
+        this.postDate.toString());
   }
 }
