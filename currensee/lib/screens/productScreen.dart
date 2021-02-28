@@ -1,9 +1,7 @@
-import 'package:currensee/widgets/listing_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:currensee/widgets/prNameHeader.dart';
-import 'package:currensee/widgets/graph.dart';
-import 'package:currensee/widgets/graphFilter.dart';
 import 'package:currensee/widgets/priceList.dart';
+import 'package:currensee/widgets/dynaGraph.dart';
 import 'package:currensee/models/listing.dart';
 //import 'package:provider/provider.dart';
 //import 'package:currensee/widgets/watchlist.dart';
@@ -21,7 +19,7 @@ class ProductScreen extends StatelessWidget {
           name: 'Listing1',
           title: 'yeeting my gpu',
           price: 500,
-          url: Uri.parse('lereddit.com'),
+          url: Uri.parse('https://www.google.com/'),
           isComplete: false,
           postDate: DateTime.parse('2021-02-24')),
       Listing(
@@ -53,8 +51,7 @@ class ProductScreen extends StatelessWidget {
       body: ListView(
         children: [
           PrNameHeader('$productName', 28),
-          ListingChart(data: _data),
-          GraphFilter(),
+          DynamicGraph(_data),
           PriceList(_data),
         ],
       ),
