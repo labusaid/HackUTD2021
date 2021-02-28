@@ -13,21 +13,21 @@ class MyHomePage extends StatelessWidget {
         title: 'yeeting my gpu',
         price: 500,
         url: Uri.parse('lereddit.com'),
-        iscomplete: false,
+        isComplete: false,
         postDate: DateTime.parse('2021-02-24')),
     Listing(
         name: 'listing2',
         title: 'yeeting my gpu again',
         price: 400,
         url: Uri.parse('lereddit.com'),
-        iscomplete: false,
+        isComplete: false,
         postDate: DateTime.parse('2021-02-25')),
     Listing(
         name: 'listing3',
         title: 'skeeting my gpu',
         price: 450,
         url: Uri.parse('lereddit.com'),
-        iscomplete: false,
+        isComplete: false,
         postDate: DateTime.parse('2021-02-26'))
   ];
 
