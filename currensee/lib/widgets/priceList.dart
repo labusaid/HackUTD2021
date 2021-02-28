@@ -1,11 +1,18 @@
 import 'package:currensee/widgets/pricetListing.dart';
 import 'package:flutter/material.dart';
+import 'package:currensee/models/listing.dart';
 
 class PriceList extends StatelessWidget {
+  final List<Listing> listOfItems;
+
+  PriceList(this.listOfItems);
+
   @override
   Widget build(BuildContext context) {
+    List<Widget> chList = [];
+    listOfItems.forEach((element) { chList.add(PriceListing(element)); });
     return Column(
-      children: [ for (var i = 0; i < 10; i++) PriceListing(i)],
+      children: chList,
     );
   }
 }

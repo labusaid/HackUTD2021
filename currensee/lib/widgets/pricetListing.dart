@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:currensee/models/listing.dart';
 
 class PriceListing extends StatelessWidget {
-  final int listingNo;
+  final Listing aListing;
 
-  PriceListing(this.listingNo);
+  PriceListing(this.aListing);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         leading: FlutterLogo(),
-        title: Text('One-line with leading widget, Listing: ' + listingNo.toString()),
+        title: Text(aListing.name),
+        subtitle: Text(aListing.postDate.toString()),
+        trailing: Text('\$' + aListing.price.toString()),
         onTap: () => {},
       )
     );
