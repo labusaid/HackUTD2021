@@ -14,14 +14,38 @@ class DynamicGraph extends StatefulWidget {
 
 class _DynamicGraphState extends State<DynamicGraph> {
   final List<Listing> _data;
+  final now = new DateTime.now();
+  int daysAgo = 1;
+
+  DateTime get dateFilter {
+    return now.subtract(Duration(days: daysAgo));
+  }
 
   _DynamicGraphState(this._data);
+
+  void day() {
+    setState(() {
+      daysAgo = 1;
+    });
+  }
+
+  void week() {
+    setState(() {
+      daysAgo = 7;
+    });
+  }
+
+  void month() {
+    setState(() {
+      daysAgo = 30;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      ListingChart(data: _data),
-      GraphFilter(),
+      ListingChart(data: _data, date: this.dateFilter),
+      GraphFilter(day, week, month),
     ],
     mainAxisAlignment: MainAxisAlignment.center,
     );
