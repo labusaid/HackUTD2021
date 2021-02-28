@@ -23,7 +23,7 @@ class PriceListing extends StatelessWidget {
     String string = dateFormat.format(aListing.postDate);
     return Card(
         child: ListTile(
-      leading: FlutterLogo(),
+      leading: Icon(Icons.device_hub),
       title: AutoSizeText(aListing.title),
       subtitle: AutoSizeText(string),
       trailing: AutoSizeText('\$' + aListing.price.toString()),
