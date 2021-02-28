@@ -1,0 +1,15 @@
+name: ebay-config
+
+# Trading API OAuth - https://developer.ebay.com/api-docs/static/oauth-tokens.html
+
+# UPDATE the values in this file, before running the tests
+api.sandbox.ebay.com:
+    appid: Yatharth-Hacktech-SBX-d69e8f5f8-ac9e1d90
+    certid: SBX-69e8f5f8e9ac-de54-4e61-9122-afb9
+    devid: 76896cba-e2b9-419b-a802-457d838942e6
+    redirecturi: Yatharth_Bindal-Yatharth-Hackte-fysprw
+api.ebay.com:
+    appid: <appid-from-developer-portal>
+    certid: <certid-from-developer-portal>
+    devid: <devid-from-developer-portal>
+    redirecturi: <redirect_uri-from-developer-portal>
