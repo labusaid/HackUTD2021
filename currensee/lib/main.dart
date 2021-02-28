@@ -12,7 +12,25 @@ void main() async {
 
   final FirestoreService firestoreService = FirestoreService();
 
-  final testData = await firestoreService.getListings('rtx 3080');
+  // final testData = await firestoreService.getAllListings();
+  final testData1 = await firestoreService.getListings('rtx 3080');
+  final testData2 = await firestoreService.getListings('rtx 3070');
+  final testData3 = await firestoreService.getListings('rtx 3060');
+  final testData4 = await firestoreService.getListings('geforce gtx 1080');
+  final testData5 = await firestoreService.getListings('geforce gtx 1060');
+  final testData6 = await firestoreService.getListings('quadro p1000');
+  final testData7 = await firestoreService.getListings('rx 6800');
+  final testData8 = await firestoreService.getListings('rx 6800 xt');
+  final testData9 = await firestoreService.getListings('rx 570');
+  final testData = testData1 +
+      testData2 +
+      testData3 +
+      testData4 +
+      testData5 +
+      testData6 +
+      testData7 +
+      testData8 +
+      testData9;
   print(testData);
 
   runApp(

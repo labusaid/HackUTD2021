@@ -5,13 +5,13 @@ import 'package:currensee/models/listing.dart';
 
 class FirestoreService {
   FirebaseFirestore firestore;
-  List<Listing> _listings = List<Listing>();
 
   FirestoreService() {
     this.firestore = FirebaseFirestore.instance;
   }
 
   Future<List<Listing>> getListings(String itemId) async {
+    List<Listing> _listings = List<Listing>();
     await firestore.collection('reddit').doc(itemId).get().then(
         (DocumentSnapshot documentSnapshot) =>
             {_listings = docToListings(documentSnapshot)});
@@ -19,7 +19,21 @@ class FirestoreService {
     return _listings;
   }
 
+  Future<List<Listing>> getAllListings() async {
+    QuerySnapshot snapshot = await firestore.collection('reddit').get();
+    List<Listing> _listings = List<Listing>();
+    snapshot.docs.forEach((doc) async {
+      final _docListings = await getListings(doc['name']);
+      _listings.addAll(_docListings);
+      // print(_listings);
+    });
+
+    // print(yeet);
+    return _listings;
+  }
+
   List<Listing> docToListings(DocumentSnapshot snapshot) {
+    List<Listing> _listings = List<Listing>();
     snapshot['posts'].forEach((post) => {
           _listings.add(new Listing(
               name: snapshot['name'],
