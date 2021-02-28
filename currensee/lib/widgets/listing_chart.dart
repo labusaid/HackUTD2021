@@ -14,12 +14,12 @@ class ListingChart extends StatelessWidget {
     List<Listing> _data = [];
 
     data.forEach((element) {
-      if(element.postDate.isAfter(date)){
+      if (element.postDate.isAfter(date)) {
         _data.add(element);
       }
     });
 
-    print(_data.length);
+    // print(_data.length);
 
     List<charts.Series<Listing, DateTime>> series = [
       charts.Series(
@@ -30,6 +30,10 @@ class ListingChart extends StatelessWidget {
       )
     ];
 
-    return Container(child: charts.TimeSeriesChart(series, animate: true), height: 250, width: 300,);
+    return Container(
+      child: charts.TimeSeriesChart(series, animate: true),
+      height: 250,
+      width: 300,
+    );
   }
 }

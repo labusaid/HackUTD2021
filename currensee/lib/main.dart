@@ -30,64 +30,63 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   List<Listing> data = [
-      Listing(
-          name: 'ProductUnique',
-          title: 'yeeting my gpu',
-          price: 500,
-          url: Uri.parse('https://www.google.com/'),
-          isComplete: false,
-          postDate: DateTime.parse('2021-02-28 20:18:04Z')),
-      Listing(
-          name: 'ProductUnique',
-          title: 'yeeting my gpu again',
-          price: 400,
-          url: Uri.parse('lereddit.com'),
-          isComplete: false,
-          postDate: DateTime.parse('2021-02-28 10:18:04Z')),
-      Listing(
-          name: 'ProductUnique',
-          title: 'skeeting my gpu',
-          price: 450,
-          url: Uri.parse('lereddit.com'),
-          isComplete: false,
-          postDate: DateTime.parse('2021-02-28 00:18:04Z')),
-      Listing(
-          name: 'Product5',
-          title: 'yeeting my gpu',
-          price: 500,
-          url: Uri.parse('https://www.google.com/'),
-          isComplete: false,
-          postDate: DateTime.parse('2021-02-26 20:18:04Z')),
-      Listing(
-          name: 'Product4',
-          title: 'yeeting my gpu again',
-          price: 400,
-          url: Uri.parse('lereddit.com'),
-          isComplete: false,
-          postDate: DateTime.parse('2021-02-02 20:18:04Z')),
-      Listing(
-          name: 'Product2',
-          title: 'yeeting my gpu',
-          price: 500,
-          url: Uri.parse('https://www.google.com/'),
-          isComplete: false,
-          postDate: DateTime.parse('2021-02-04 20:18:04Z')),
-      Listing(
-          name: 'ProductUnique',
-          title: 'yeeting my gpu again',
-          price: 400,
-          url: Uri.parse('lereddit.com'),
-          isComplete: false,
-          postDate: DateTime.parse('2021-02-12 20:18:04Z')),
-      Listing(
-          name: 'Product1',
-          title: 'skeeting my gpu',
-          price: 450,
-          url: Uri.parse('lereddit.com'),
-          isComplete: false,
-          postDate: DateTime.parse('2021-02-14 20:18:04Z'))
-    ];
-
+    Listing(
+        name: 'ProductUnique',
+        title: 'yeeting my gpu',
+        price: 500,
+        url: Uri.parse('https://www.google.com/'),
+        isComplete: false,
+        postDate: DateTime.parse('2021-02-28 20:18:04Z')),
+    Listing(
+        name: 'ProductUnique',
+        title: 'yeeting my gpu again',
+        price: 400,
+        url: Uri.parse('lereddit.com'),
+        isComplete: false,
+        postDate: DateTime.parse('2021-02-28 10:18:04Z')),
+    Listing(
+        name: 'ProductUnique',
+        title: 'skeeting my gpu',
+        price: 450,
+        url: Uri.parse('lereddit.com'),
+        isComplete: false,
+        postDate: DateTime.parse('2021-02-28 00:18:04Z')),
+    Listing(
+        name: 'Product5',
+        title: 'yeeting my gpu',
+        price: 500,
+        url: Uri.parse('https://www.google.com/'),
+        isComplete: false,
+        postDate: DateTime.parse('2021-02-26 20:18:04Z')),
+    Listing(
+        name: 'Product4',
+        title: 'yeeting my gpu again',
+        price: 400,
+        url: Uri.parse('lereddit.com'),
+        isComplete: false,
+        postDate: DateTime.parse('2021-02-02 20:18:04Z')),
+    Listing(
+        name: 'Product2',
+        title: 'yeeting my gpu',
+        price: 500,
+        url: Uri.parse('https://www.google.com/'),
+        isComplete: false,
+        postDate: DateTime.parse('2021-02-04 20:18:04Z')),
+    Listing(
+        name: 'ProductUnique',
+        title: 'yeeting my gpu again',
+        price: 400,
+        url: Uri.parse('lereddit.com'),
+        isComplete: false,
+        postDate: DateTime.parse('2021-02-12 20:18:04Z')),
+    Listing(
+        name: 'Product1',
+        title: 'skeeting my gpu',
+        price: 450,
+        url: Uri.parse('lereddit.com'),
+        isComplete: false,
+        postDate: DateTime.parse('2021-02-14 20:18:04Z'))
+  ];
 
   @override
   void initState() {
@@ -103,8 +102,6 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         accentColor: Colors.teal,
-        //primaryTextTheme: Typography.material2018().black,
-        //textTheme: Typography.material2018().black,
       ),
       initialRoute: '/',
       routes: {

@@ -11,8 +11,8 @@ class FirestoreService {
     this.firestore = FirebaseFirestore.instance;
   }
 
-  Future<List<Listing>> getListings() async {
-    await firestore.collection('reddit').doc('Selling').get().then(
+  Future<List<Listing>> getListings(String itemId) async {
+    await firestore.collection('reddit').doc(itemId).get().then(
         (DocumentSnapshot documentSnapshot) =>
             {_listings = docToListings(documentSnapshot)});
 
