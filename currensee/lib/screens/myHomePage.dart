@@ -4,6 +4,7 @@ import 'package:currensee/widgets/watchlistManip.dart';
 import 'package:currensee/widgets/watchlist.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:currensee/widgets/searchBox.dart';
 
 class MyHomePage extends StatelessWidget {
   static const title = 'CurrenSee';
@@ -61,11 +62,7 @@ class MyHomePage extends StatelessWidget {
                 builder: (context, aWL, child) => Watchlist(aWL.dict),
               ),
             ),
-            FloatingActionButton(
-              onPressed: () => {Navigator.pushNamed(context, '/prodScreen')},
-              tooltip: 'Navigate to Generic Product Page',
-              child: Icon(Icons.search),
-            )
+            SearchBox()
           ],
         ),
       ),

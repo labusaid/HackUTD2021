@@ -43,6 +43,8 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         accentColor: Colors.teal,
+        //primaryTextTheme: Typography.material2018().black,
+        //textTheme: Typography.material2018().black,
       ),
       initialRoute: '/',
       routes: {
