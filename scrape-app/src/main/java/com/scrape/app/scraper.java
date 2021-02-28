@@ -3,9 +3,9 @@ import com.ebay.api.client.auth.oauth2.CredentialUtil;
 import com.ebay.api.client.auth.oauth2.OAuth2Api;
 import com.ebay.api.client.auth.oauth2.model.*;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Optional;
 
 /**
  * Hello world!
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class scraper {
     public static void main(String[] args) {
-        String file = "C:/Users/kshim/hackutd2021/scrape-app/ebay-config.yaml";
+        File file = new File("C:/Users/kshim/hackutd2021/scrape-app/ebay-config.yaml");
         try {
             CredentialUtil.load(new FileInputStream(file));
         } catch (FileNotFoundException e) {
@@ -23,9 +23,18 @@ public class scraper {
         scope.add("https://api.ebay.com/oauth/api_scope/buy.offer.auction");
         scope.add("https://api.ebay.com/oauth/api_scope/buy.marketing");
 
-        OAuth2Api auth = new OAuth2Api();
-        String userAuthUrl = auth.generateUserAuthorizationUrl(Environment.SANDBOX, scope, null);
-        System.out.println(userAuthUrl);
+        try {
+            String state = null;
+            Optional<String> foo = Optional.ofNullable(state);
+            OAuth2Api auth = new OAuth2Api();
+
+            String oApi = auth.generateUserAuthorizationUrl(Environment.SANDBOX, scope, foo);
+            System.out.println(oApi);
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
 
     }
 }

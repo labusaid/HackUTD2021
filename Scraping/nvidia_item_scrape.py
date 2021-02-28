@@ -4,6 +4,10 @@ import re
 
 
 def nvidia_item_scrape():
+    '''
+    Scrapes wikipedia article for list of nvidia gpu's; returns a set of unique model names
+    :return: set
+    '''
     # Get http response
     r = requests.get('https://en.wikipedia.org/wiki/List_of_Nvidia_graphics_processing_units')
 
@@ -33,8 +37,12 @@ def nvidia_item_scrape():
                 for string in e.stripped_strings:
                     txt += (string + ' ')
 
-                # Clean out the extraneous links; keep the name
-                items.append(re.sub(r'((\[.+\]\s*)+$)', '', txt))
+                # Clean out the extraneous links; keep the name; strip and lower it for universality
+                items.append(re.sub(r'((\[.+\]\s*)+$)', '', txt).strip().lower())
 
-
+    # Remove incorrect items (not nvidia products; anomalies in wiki tables)
+    items = [i for i in items if i != 'model' and i != 'moperations/s' and
+                    i != 'min ( MHz )' and i != 'hardware' and i != 'core ( MHz )' and i != 'cuda cores (total)' and
+                    i != 'fillrate' and i != 'clock rate' and i != 'clock speed']
+    items = set(items)
     return items
