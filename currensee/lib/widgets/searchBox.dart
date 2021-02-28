@@ -21,7 +21,9 @@ class _SearchBoxState extends State<SearchBox> {
     data.forEach((element) {
       list.add(element.name);
     });
-
+    Set<String> nameSet = list.toSet();
+    list = nameSet.toList();
+    print(list);
     return Container(
         child: IconButton(
       onPressed: () =>
@@ -93,7 +95,7 @@ class Search extends SearchDelegate {
   final List<Listing> data;
   Search(this.listExample, this.data);
 
-  List<String> recentList = ["Listing 1", "Listing 2"];
+  List<String> recentList = ["Nvidia RTX Pro", "AMD Radeon"];
 
   @override
   Widget buildSuggestions(BuildContext context) {

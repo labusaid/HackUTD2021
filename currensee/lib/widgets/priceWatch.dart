@@ -45,7 +45,7 @@ class PriceWatch extends StatelessWidget {
                   child: AutoSizeText(
                     productName,
                     style: GoogleFonts.lato(
-                      textStyle: TextStyle(color: Colors.black, fontSize: 15),
+                      textStyle: TextStyle(color: Colors.black, fontSize: 10),
                     ),
                     maxLines: 1,
                   ),

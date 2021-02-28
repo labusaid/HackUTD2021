@@ -93,7 +93,7 @@ def get_post_list_until(unix_cutoff):
 
     # loop!
     post_list = []
-    for i in range(100):
+    for i in range(150):
         # build the url out of params
         url = (pushshift_base_url +
                '?before=' + str(before_utc) +
@@ -136,9 +136,6 @@ def get_df(post_list, item_set):
             location = result.group(1)[1:-1]
 
             # Get buy/sell boolean
-            # OLD CODE
-            # is_selling = True if result.group(2)[1] == 'H' else False if result.group(2)[1] == 'W' else None
-            # REPLACEMENT (MORE ACCURATE)
             is_selling = None
             if 'link_flair_text' in post:
                 if post['link_flair_text'] == 'SELLING':
@@ -161,16 +158,8 @@ def get_df(post_list, item_set):
             # Extract mentioned price on graphics cards
             graphics_price = get_price(post_content)
 
-            data_row = [location, is_selling, s_time, graphics_item, graphics_price, post['id']]
+            data_row = [location, is_selling, s_time, graphics_item, graphics_price, post['title'], post['url']]
             data_list.append(data_row)
-            # # Append it to our data list
-            # if graphics_item:
-            #     if graphics_price:
-            #         data_list.append([location, is_selling, s_time, graphics_item, graphics_price])
-            #     else:
-            #         data_list.append([location, is_selling, s_time, graphics_item, None])
-            # else:
-            #     data_list.append([location, is_selling, s_time, None, None])
 
             # Print after every 50 posts processed
             i += 1
@@ -182,19 +171,19 @@ def get_df(post_list, item_set):
 # Scrape wikipedia for nvidia product set
 nvidia_item_set = nvidia_item_scrape.nvidia_item_scrape()
 
-# # OPTION 1: Load post_list from existing file
-# f = open('post_list.json', 'r', encoding='utf-8')
-# dl = json.load(f)
+# OPTION 1: Load post_list from existing file
+f = open('post_list.json', 'r', encoding='utf-8')
+dl = json.load(f)
 
-# OPTION 2: run the code below again to re-scrape wikipedia and reddit
-# ---------------------------------------------------------------------------------------------------------
-# Get a list of posts (type dict) from reddit
-dl = get_post_list_until(unix_cutoff=1614511080)
-
-# make a json object out of it
-with open('post_list.json', 'w', encoding='utf-8') as f:
-    json.dump(dl, f, indent=4)
-# ---------------------------------------------------------------------------------------------------------
+# # OPTION 2: run the code below again to re-scrape wikipedia and reddit
+# # ---------------------------------------------------------------------------------------------------------
+# # Get a list of posts (type dict) from reddit
+# dl = get_post_list_until(unix_cutoff=1614532850)
+#
+# # make a json object out of it
+# with open('post_list.json', 'w', encoding='utf-8') as f:
+#     json.dump(dl, f, indent=4)
+# # ---------------------------------------------------------------------------------------------------------
 
 # Create a dataframe with relevant data from the list of posts
 df = get_df(dl, nvidia_item_set)

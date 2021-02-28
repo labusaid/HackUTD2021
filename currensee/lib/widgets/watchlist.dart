@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:currensee/models/listing.dart';
 
 class WatchDict extends ChangeNotifier {
-  final Map<String, double> _watched = {'Product1': 100};
+  final Map<String, double> _watched = {'rtx 3080': 100};
   
   double getPrice(String prodName){
     var rng = new Random();
@@ -38,8 +38,17 @@ class Watchlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> chList = [];
-    print(  watched);
-    watched.forEach((key, value) => chList.add(PriceWatch(key, value, data)));
+    print(watched);
+    watched.forEach((key, value){
+      List<Listing> _data = [];
+      data.forEach((element) {
+        if(element.name == key){
+         _data.add(element);
+        }
+        });
+      chList.add(PriceWatch(key, value, _data));
+        }
+    );
     print(chList);
     return ListView(
       children: chList,
