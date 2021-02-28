@@ -93,7 +93,7 @@ class Search extends SearchDelegate {
   final List<Listing> data;
   Search(this.listExample, this.data);
 
-  List<String> recentList = ["Listing 1", "Listing 2"];
+  List<String> recentList = ["Nvidia RTX Pro", "AMD Radeon"];
 
   @override
   Widget buildSuggestions(BuildContext context) {

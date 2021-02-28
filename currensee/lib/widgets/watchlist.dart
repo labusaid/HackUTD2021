@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:currensee/models/listing.dart';
 
 class WatchDict extends ChangeNotifier {
-  final Map<String, double> _watched = {'Product1': 100};
+  final Map<String, double> _watched = {'AMD Radeon 250': 100};
   
   double getPrice(String prodName){
     var rng = new Random();
