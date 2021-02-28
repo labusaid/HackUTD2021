@@ -1,7 +1,5 @@
 import 'package:currensee/models/listing.dart';
 import 'package:currensee/screens/productScreen.dart';
-import 'package:currensee/widgets/graph.dart';
-import 'package:currensee/widgets/listing_chart.dart';
 import 'package:currensee/widgets/watchlist.dart';
 import 'package:flutter/material.dart';
 import './widgets/watchlist.dart';

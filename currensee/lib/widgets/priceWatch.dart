@@ -1,6 +1,6 @@
 import 'package:currensee/widgets/graph.dart';
-import 'package:currensee/widgets/prNameHeader.dart';
 import 'package:flutter/material.dart';
+import '../screens/showDeleteConfirm.dart';
 
 class PriceWatch extends StatelessWidget {
   final String productName;
@@ -15,6 +15,9 @@ class PriceWatch extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {Navigator.pushNamed(context, '/prodScreen')},
+      onLongPress: (){
+        showAlertDialog(context, productName);
+      },
       child: Card(
         child: Row(
           children: [
@@ -23,6 +26,7 @@ class PriceWatch extends StatelessWidget {
             FittedBox(fit: BoxFit.contain, child: Text(priceString))
           ],
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          
         ),
         color: Colors.blue,
       ),
