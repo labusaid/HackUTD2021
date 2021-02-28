@@ -12,81 +12,82 @@ void main() async {
 
   final FirestoreService firestoreService = FirestoreService();
 
-  //final data = await firestoreService.getListings();
-  //print(data);
+  final testData = await firestoreService.getListings('rtx 3080');
+  print(testData);
 
   runApp(
     ChangeNotifierProvider(
       create: (context) => WatchDict(),
-      child: MyApp(),
+      child: MyApp(testData),
     ),
   );
 }
 
 class MyApp extends StatefulWidget {
+  final testData;
+  MyApp(this.testData);
+
   @override
-  _MyAppState createState() => _MyAppState();
+  _MyAppState createState() => _MyAppState(this.testData);
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Listing> data = [
-    Listing(
-        name: 'ProductUnique',
-        title: 'yeeting my gpu',
-        price: 500,
-        url: Uri.parse('https://www.google.com/'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-28 20:18:04Z')),
-    Listing(
-        name: 'ProductUnique',
-        title: 'yeeting my gpu again',
-        price: 400,
-        url: Uri.parse('lereddit.com'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-28 10:18:04Z')),
-    Listing(
-        name: 'ProductUnique',
-        title: 'skeeting my gpu',
-        price: 450,
-        url: Uri.parse('lereddit.com'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-28 00:18:04Z')),
-    Listing(
-        name: 'Product5',
-        title: 'yeeting my gpu',
-        price: 500,
-        url: Uri.parse('https://www.google.com/'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-26 20:18:04Z')),
-    Listing(
-        name: 'Product4',
-        title: 'yeeting my gpu again',
-        price: 400,
-        url: Uri.parse('lereddit.com'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-02 20:18:04Z')),
-    Listing(
-        name: 'Product2',
-        title: 'yeeting my gpu',
-        price: 500,
-        url: Uri.parse('https://www.google.com/'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-04 20:18:04Z')),
-    Listing(
-        name: 'ProductUnique',
-        title: 'yeeting my gpu again',
-        price: 400,
-        url: Uri.parse('lereddit.com'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-12 20:18:04Z')),
-    Listing(
-        name: 'Product1',
-        title: 'skeeting my gpu',
-        price: 450,
-        url: Uri.parse('lereddit.com'),
-        isComplete: false,
-        postDate: DateTime.parse('2021-02-14 20:18:04Z'))
-  ];
+  List<Listing> data;
+
+  _MyAppState(testData) {
+    data = testData;
+  }
+
+  // List<Listing> data = [
+  //   Listing(
+  //       name: 'ProductUnique',
+  //       title: 'yeeting my gpu',
+  //       price: 500,
+  //       url: Uri.parse('https://www.google.com/'),
+  //       postDate: DateTime.parse('2021-02-28 20:18:04Z')),
+  //   Listing(
+  //       name: 'ProductUnique',
+  //       title: 'yeeting my gpu again',
+  //       price: 400,
+  //       url: Uri.parse('lereddit.com'),
+  //       postDate: DateTime.parse('2021-02-28 10:18:04Z')),
+  //   Listing(
+  //       name: 'ProductUnique',
+  //       title: 'skeeting my gpu',
+  //       price: 450,
+  //       url: Uri.parse('lereddit.com'),
+  //       postDate: DateTime.parse('2021-02-28 00:18:04Z')),
+  //   Listing(
+  //       name: 'Product5',
+  //       title: 'yeeting my gpu',
+  //       price: 500,
+  //       url: Uri.parse('https://www.google.com/'),
+  //       postDate: DateTime.parse('2021-02-26 20:18:04Z')),
+  //   Listing(
+  //       name: 'Product4',
+  //       title: 'yeeting my gpu again',
+  //       price: 400,
+  //       url: Uri.parse('lereddit.com'),
+  //       postDate: DateTime.parse('2021-02-02 20:18:04Z')),
+  //   Listing(
+  //       name: 'Product2',
+  //       title: 'yeeting my gpu',
+  //       price: 500,
+  //       url: Uri.parse('https://www.google.com/'),
+  //       postDate: DateTime.parse('2021-02-04 20:18:04Z')),
+  //   Listing(
+  //       name: 'ProductUnique',
+  //       title: 'yeeting my gpu again',
+  //       price: 400,
+  //       url: Uri.parse('lereddit.com'),
+  //       postDate: DateTime.parse('2021-02-12 20:18:04Z')),
+  //   Listing(
+  //       name: 'Product1',
+  //       title: 'skeeting my gpu',
+  //       price: 450,
+  //       url: Uri.parse('lereddit.com'),
+  //       postDate: DateTime.parse('2021-02-14 20:18:04Z'))
+  // ];
 
   @override
   void initState() {

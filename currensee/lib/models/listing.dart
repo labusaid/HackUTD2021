@@ -5,7 +5,6 @@ class Listing {
   final String title;
   final double price;
   final Uri url;
-  final bool isComplete;
   final DateTime postDate;
 
   Listing({
@@ -13,7 +12,6 @@ class Listing {
     @required this.title,
     @required this.price,
     @required this.url,
-    @required this.isComplete,
     @required this.postDate,
   });
 
@@ -23,7 +21,6 @@ class Listing {
         this.title +
         this.price.toString() +
         this.url.toString() +
-        this.isComplete.toString() +
         this.postDate.toString());
   }
 }

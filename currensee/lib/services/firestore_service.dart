@@ -26,9 +26,7 @@ class FirestoreService {
               title: post['title'],
               price: post['price'].toDouble(),
               url: Uri.parse(post['url']),
-              isComplete: post['isComplete'],
-              postDate: DateTime.fromMicrosecondsSinceEpoch(
-                  post['postDate'].microsecondsSinceEpoch)))
+              postDate: DateTime.parse(post['postDate'].toString())))
         });
 
     return _listings;
