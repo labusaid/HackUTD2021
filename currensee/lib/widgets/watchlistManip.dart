@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:currensee/widgets/watchlist.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class WatchlistManip extends StatefulWidget {
   final Function a;
@@ -25,9 +29,17 @@ class _WatchlistManipState extends State<WatchlistManip> {
 
   @override
   Widget build(BuildContext context) {
+    var aWL = Provider.of<WatchDict>(context, listen: false);
+    var len = aWL.dict.length;
     return ListTile(
       title: Text(
-        'Watchlist\n',
+        'Watchlist',
+        style: GoogleFonts.lato(),
+      ),
+      subtitle: AutoSizeText(
+        '$len Items',
+        style: GoogleFonts.lato(),
+        maxLines: 1,
       ),
       trailing: IconButton(
           icon: Icon(Icons.add),

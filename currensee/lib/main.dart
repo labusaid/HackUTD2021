@@ -20,13 +20,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'CurrenSee',
       theme: ThemeData(
+        brightness: Brightness.dark,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        accentColor: Colors.teal,
       ),
       initialRoute: '/',
       routes: {
         '/': (context) => MyHomePage(),
-        '/prodScreen': (context) => ProductScreen(),
+        '/prodScreen': (context) => ProductScreen('DefaultProduct'),
       },
     );
   }
