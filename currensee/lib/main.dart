@@ -1,7 +1,9 @@
+import 'package:currensee/models/listing.dart';
 import 'package:currensee/screens/productScreen.dart';
+import 'package:currensee/widgets/graph.dart';
+import 'package:currensee/widgets/listing_chart.dart';
 import 'package:currensee/widgets/watchlist.dart';
 import 'package:flutter/material.dart';
-import './widgets/watchlist.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,6 +46,29 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   static const title = 'CurrenSee';
+  final List<Listing> data = [
+    Listing(
+        name: 'listing1',
+        title: 'yeeting my gpu',
+        price: 500,
+        url: Uri.parse('lereddit.com'),
+        iscomplete: false,
+        postDate: DateTime.parse('2021-02-24')),
+    Listing(
+        name: 'listing2',
+        title: 'yeeting my gpu again',
+        price: 400,
+        url: Uri.parse('lereddit.com'),
+        iscomplete: false,
+        postDate: DateTime.parse('2021-02-25')),
+    Listing(
+        name: 'listing3',
+        title: 'skeeting my gpu',
+        price: 450,
+        url: Uri.parse('lereddit.com'),
+        iscomplete: false,
+        postDate: DateTime.parse('2021-02-26'))
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -63,10 +88,7 @@ class MyHomePage extends StatelessWidget {
               'Watchlist\n',
               textAlign: TextAlign.center,
             ),
-            Container(
-              height: 380,
-              child: Watchlist(),
-            ),
+            Container(height: 380, child: ListingChart(data: data)),
             FloatingActionButton(
               onPressed: () => {Navigator.pushNamed(context, '/prodScreen')},
               tooltip: 'Navigate to Generic Product Page',
