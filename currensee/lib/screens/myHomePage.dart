@@ -64,7 +64,7 @@ class MyHomePage extends StatelessWidget {
             FloatingActionButton(
               onPressed: () => {Navigator.pushNamed(context, '/prodScreen')},
               tooltip: 'Navigate to Generic Product Page',
-              child: Icon(Icons.navigate_next_sharp),
+              child: Icon(Icons.search),
             )
           ],
         ),
