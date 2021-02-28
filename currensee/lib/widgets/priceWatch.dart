@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class PriceWatch extends StatelessWidget {
   final String productName;
-  final int price;
+  final double price;
   String get priceString {
     return "\$" + price.toString();
   }

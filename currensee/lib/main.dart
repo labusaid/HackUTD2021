@@ -4,9 +4,17 @@ import 'package:currensee/widgets/graph.dart';
 import 'package:currensee/widgets/listing_chart.dart';
 import 'package:currensee/widgets/watchlist.dart';
 import 'package:flutter/material.dart';
+import './widgets/watchlist.dart';
+import './widgets/watchlistManip.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => WatchDict(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -72,6 +80,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var aWL = Provider.of<WatchDict>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -84,11 +93,13 @@ class MyHomePage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(backgroundColor: Colors.teal, fontSize: 20),
             ),
-            Text(
-              'Watchlist\n',
-              textAlign: TextAlign.center,
+            WatchlistManip(aWL.add, aWL.remove),
+            Container(
+              height: 380,
+              child: Consumer<WatchDict>(
+                builder: (context, aWL, child) => Watchlist(aWL.dict),
+              ),
             ),
-            Container(height: 380, child: ListingChart(data: data)),
             FloatingActionButton(
               onPressed: () => {Navigator.pushNamed(context, '/prodScreen')},
               tooltip: 'Navigate to Generic Product Page',

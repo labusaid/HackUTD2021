@@ -1,11 +1,46 @@
 import 'package:flutter/material.dart';
 import './priceWatch.dart';
+import 'dart:math';
+
+class WatchDict extends ChangeNotifier {
+  final Map<String, double> _watched = {'Product1': 100};
+  
+  double getPrice(String prodName){
+    var rng = new Random();
+    return rng.nextInt(1000).toDouble();
+  }
+  
+  Map<String, double> get dict{
+    return _watched;
+  }
+
+  void add(String prodName){
+    _watched.putIfAbsent(prodName, () => getPrice(prodName));
+    print(_watched);
+    notifyListeners();
+  }
+
+  void remove(String prodName){
+    _watched.remove(prodName);
+    notifyListeners();
+  }
+}
+
 
 class Watchlist extends StatelessWidget {
+
+   final Map<String, double> watched;
+
+   Watchlist(this.watched);
+
   @override
   Widget build(BuildContext context) {
+    List<Widget> chList = [];
+    print(  watched);
+    watched.forEach((key, value) => chList.add(PriceWatch(key, value)));
+    print(chList);
     return ListView(
-      children: [for (var i = 0; i < 20; i++) PriceWatch('Product'+i.toString(), 100)],
+      children: chList,
       shrinkWrap: true,
       physics: ClampingScrollPhysics(),
     );
