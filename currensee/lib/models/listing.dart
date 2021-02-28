@@ -16,4 +16,9 @@ class Listing {
     @required this.isComplete,
     @required this.postDate,
   });
+
+  @override
+  String toString() {
+    return (this.name + 'listing');
+  }
 }

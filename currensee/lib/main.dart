@@ -29,6 +29,7 @@ class _MyAppState extends State<MyApp> {
     final FirestoreService firestoreService = FirestoreService();
 
     final data = firestoreService.getListings();
+    print(data);
   }
 
   @override
