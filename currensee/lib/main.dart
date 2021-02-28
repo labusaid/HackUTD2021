@@ -12,8 +12,8 @@ void main() async {
 
   final FirestoreService firestoreService = FirestoreService();
 
-  final data = await firestoreService.getListings();
-  print(data);
+  //final data = await firestoreService.getListings();
+  //print(data);
 
   runApp(
     ChangeNotifierProvider(
