@@ -9,6 +9,12 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  final FirestoreService firestoreService = FirestoreService();
+
+  final data = await firestoreService.getListings();
+  print(data);
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => WatchDict(),
@@ -26,10 +32,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    final FirestoreService firestoreService = FirestoreService();
-
-    final data = firestoreService.getListings();
-    print(data);
   }
 
   @override
@@ -41,6 +43,8 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         accentColor: Colors.teal,
+        //primaryTextTheme: Typography.material2018().black,
+        //textTheme: Typography.material2018().black,
       ),
       initialRoute: '/',
       routes: {

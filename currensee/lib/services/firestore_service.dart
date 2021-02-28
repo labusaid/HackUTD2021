@@ -11,11 +11,12 @@ class FirestoreService {
     this.firestore = FirebaseFirestore.instance;
   }
 
-  List<Listing> getListings() {
+  Future<List<Listing>> getListings() async {
     firestore.collection('reddit').doc('Selling').get().then(
         (DocumentSnapshot documentSnapshot) =>
             {_listings.add(docToListing(documentSnapshot))});
 
+    print(_listings);
     return _listings;
   }
 

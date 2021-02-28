@@ -3,6 +3,7 @@ import '../screens/showDeleteConfirm.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'dart:math';
+import 'package:currensee/screens/productScreen.dart';
 
 class PriceWatch extends StatelessWidget {
   final String productName;
@@ -21,7 +22,13 @@ class PriceWatch extends StatelessWidget {
   Widget build(BuildContext context) {
     bool riseInPrice = priceRise;
     return GestureDetector(
-      onTap: () => {Navigator.pushNamed(context, '/prodScreen')},
+      onTap: () => {
+        Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        ProductScreen(productName)))
+      },
       onLongPress: () {
         showAlertDialog(context, productName);
       },
