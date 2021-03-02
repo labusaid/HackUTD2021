@@ -41,27 +41,27 @@ class _WatchlistManipState extends State<WatchlistManip> {
         style: GoogleFonts.lato(),
         maxLines: 1,
       ),
-      trailing: IconButton(
-          icon: Icon(Icons.add),
-          onPressed: () => {
-                showDialog(
-                    context: context,
-                    child: Dialog(
-                      child: Column(children: [
-                        TextField(
-                          decoration: InputDecoration(hintText: "Add to list"),
-                          controller: _c,
-                        ),
-                        FlatButton(
-                          onPressed: () {
-                            add(_c.text);
-                            Navigator.pop(context);
-                          },
-                          child: Text('Confirm Add'),
-                        ),
-                      ]),
-                    ))
-              }),
+      // trailing: IconButton(
+      //     icon: Icon(Icons.add),
+      //     onPressed: () => {
+      //           showDialog(
+      //               context: context,
+      //               child: Dialog(
+      //                 child: Column(children: [
+      //                   TextField(
+      //                     decoration: InputDecoration(hintText: "Add to list"),
+      //                     controller: _c,
+      //                   ),
+      //                   FlatButton(
+      //                     onPressed: () {
+      //                       add(_c.text);
+      //                       Navigator.pop(context);
+      //                     },
+      //                     child: Text('Confirm Add'),
+      //                   ),
+      //                 ]),
+      //               ))
+      //         }),
     );
   }
 }
