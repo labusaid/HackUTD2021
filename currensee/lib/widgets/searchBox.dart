@@ -14,7 +14,6 @@ class _SearchBoxState extends State<SearchBox> {
 
   _SearchBoxState(this.data);
 
-
   @override
   Widget build(BuildContext context) {
     List<String> list = [];
@@ -23,7 +22,6 @@ class _SearchBoxState extends State<SearchBox> {
     });
     Set<String> nameSet = list.toSet();
     list = nameSet.toList();
-    print(list);
     return Container(
         child: IconButton(
       onPressed: () =>

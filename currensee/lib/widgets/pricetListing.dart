@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:currensee/models/listing.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:currensee/models/listing.dart';
 
 class PriceListing extends StatelessWidget {
   final Listing aListing;

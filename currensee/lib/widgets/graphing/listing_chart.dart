@@ -9,6 +9,7 @@ class ListingChart extends StatelessWidget {
 
   ListingChart({@required this.data, @required this.date});
 
+  // TODO: merge graph into a single widget
   @override
   Widget build(BuildContext context) {
     List<Listing> _data = [];
@@ -18,8 +19,6 @@ class ListingChart extends StatelessWidget {
         _data.add(element);
       }
     });
-
-    // print(_data.length);
 
     List<charts.Series<Listing, DateTime>> series = [
       charts.Series(

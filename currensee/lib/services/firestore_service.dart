@@ -25,10 +25,8 @@ class FirestoreService {
     snapshot.docs.forEach((doc) async {
       final _docListings = await getListings(doc['name']);
       _listings.addAll(_docListings);
-      // print(_listings);
     });
 
-    // print(yeet);
     return _listings;
   }
 

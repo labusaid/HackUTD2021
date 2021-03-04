@@ -7,10 +7,13 @@ class PriceList extends StatelessWidget {
 
   PriceList(this.listOfItems);
 
+  // TODO: replace with listbuilder
   @override
   Widget build(BuildContext context) {
     List<Widget> chList = [];
-    listOfItems.forEach((element) { chList.add(PriceListing(element)); });
+    listOfItems.forEach((element) {
+      chList.add(PriceListing(element));
+    });
     return Column(
       children: chList,
     );

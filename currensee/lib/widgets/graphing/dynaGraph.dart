@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:currensee/widgets/graphFilter.dart';
-import 'package:currensee/widgets/listing_chart.dart';
+import 'package:currensee/widgets/graphing/graphFilter.dart';
+import 'package:currensee/widgets/graphing/listing_chart.dart';
 import 'package:currensee/models/listing.dart';
 
 class DynamicGraph extends StatefulWidget {
@@ -43,11 +43,12 @@ class _DynamicGraphState extends State<DynamicGraph> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      ListingChart(data: _data, date: this.dateFilter),
-      GraphFilter(day, week, month),
-    ],
-    mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      children: [
+        ListingChart(data: _data, date: this.dateFilter),
+        GraphFilter(day, week, month),
+      ],
+      mainAxisAlignment: MainAxisAlignment.center,
     );
   }
 }

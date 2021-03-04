@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:currensee/widgets/prNameHeader.dart';
 import 'package:currensee/widgets/priceList.dart';
-import 'package:currensee/widgets/dynaGraph.dart';
+import 'package:currensee/widgets/graphing/dynaGraph.dart';
 import 'package:currensee/models/listing.dart';
-import 'package:provider/provider.dart';
 import 'package:currensee/widgets/watchlist.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Listing> _data = [];
     data.forEach((element) {
-      if(element.name == productName){
+      if (element.name == productName) {
         _data.add(element);
       }
     });

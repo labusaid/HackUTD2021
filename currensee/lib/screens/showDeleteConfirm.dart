@@ -2,20 +2,19 @@ import 'package:currensee/widgets/watchlist.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-showAlertDialog(BuildContext context, String prodName) {
-
+showAlertDialog(BuildContext context, String itemName) {
   // set up the buttons
   Widget cancelButton = FlatButton(
     child: Text("Cancel"),
-    onPressed:  () {
+    onPressed: () {
       Navigator.pop(context);
     },
   );
   Widget continueButton = FlatButton(
     child: Text("Yes, Delete"),
-    onPressed:  () {
-      var aWL = Provider.of<WatchDict>(context, listen: false);
-      aWL.remove(prodName);
+    onPressed: () {
+      var watchList = Provider.of<WatchDict>(context, listen: false);
+      watchList.remove(itemName);
       Navigator.pop(context);
     },
   );
@@ -23,7 +22,7 @@ showAlertDialog(BuildContext context, String prodName) {
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
     title: Text("Confirm Delete"),
-    content: Text("Would you like to remove $prodName from watchlist?"),
+    content: Text("Would you like to remove $itemName from watchlist?"),
     actions: [
       cancelButton,
       continueButton,

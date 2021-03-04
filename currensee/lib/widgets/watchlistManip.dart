@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:currensee/widgets/watchlist.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:currensee/widgets/watchlist.dart';
 
 class WatchlistManip extends StatefulWidget {
   final Function a;
@@ -15,7 +14,6 @@ class WatchlistManip extends StatefulWidget {
 }
 
 class _WatchlistManipState extends State<WatchlistManip> {
-  TextEditingController _c;
   Function add;
   Function remove;
 
@@ -23,7 +21,6 @@ class _WatchlistManipState extends State<WatchlistManip> {
 
   @override
   initState() {
-    _c = new TextEditingController();
     super.initState();
   }
 
@@ -34,34 +31,11 @@ class _WatchlistManipState extends State<WatchlistManip> {
     return ListTile(
       title: Text(
         'Watchlist',
-        style: GoogleFonts.lato(),
       ),
       subtitle: AutoSizeText(
         '$len Items',
-        style: GoogleFonts.lato(),
         maxLines: 1,
       ),
-      // trailing: IconButton(
-      //     icon: Icon(Icons.add),
-      //     onPressed: () => {
-      //           showDialog(
-      //               context: context,
-      //               child: Dialog(
-      //                 child: Column(children: [
-      //                   TextField(
-      //                     decoration: InputDecoration(hintText: "Add to list"),
-      //                     controller: _c,
-      //                   ),
-      //                   FlatButton(
-      //                     onPressed: () {
-      //                       add(_c.text);
-      //                       Navigator.pop(context);
-      //                     },
-      //                     child: Text('Confirm Add'),
-      //                   ),
-      //                 ]),
-      //               ))
-      //         }),
     );
   }
 }
